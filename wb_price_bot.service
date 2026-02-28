@@ -1,0 +1,17 @@
+[Unit]
+Description=Wildberries Price Tracker Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_LINUX_USER
+WorkingDirectory=/opt/wb_price_bot
+EnvironmentFile=/opt/wb_price_bot/.env
+ExecStart=/opt/wb_price_bot/venv/bin/python bot.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
